@@ -1,3 +1,24 @@
+import setuptools
+
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
+setuptools.setup(
+    name="qr_console",
+    version="1.0",
+    author="Kurush",
+    author_email="ze17@ya.ru",
+    description="console app builder",
+    long_description_content_type="text/markdown",
+    url="https://github.com/Kurush7/qr_console",
+    packages=setuptools.find_packages(),
+    install_requires=required,
+    classifiers=[
+        "Programming Language :: Python :: 3.6",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
+    long_description='''
 # qr_console
 
 This project is a small console-app builder based on 
@@ -72,3 +93,5 @@ unrecognized arguments: -b=5
 argument b: invalid int value: 'a'
 ?>
 ```
+'''
+)
