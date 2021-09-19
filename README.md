@@ -2,6 +2,7 @@
 
 This project is a small console-app builder based on 
 [argparse](https://docs.python.org/3/library/argparse.html) package.
+Note: all exceptions raised during command execution are wrapped.
 
 ### Usage example:
 ```python
