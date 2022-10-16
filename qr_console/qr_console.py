@@ -137,7 +137,7 @@ class QRConsole:
     def __read_line(self):
         is_help = None
         try:
-            s = input('?>').split()
+            s = self.extract_args(input('?>'))
             is_help = ('-h' in s) or ('--help' in s)
             args = self.parser.parse_args(s)
             if args.__contains__('func') and not is_help:
@@ -148,6 +148,21 @@ class QRConsole:
                 print(Style.RESET_ALL, end='')
                 if self.throw_errors:
                     sys.exit(1)
+
+    def extract_args(self, s):
+        p = r'\"([A-Za-z0-9а-яА-Я_ -]+)\"'
+        b_args = ['"' + x + '"' for x in re.findall(p, s)]
+        fill = f'$^$$^$'
+        for i in range(len(b_args)):
+            s = s.replace(b_args[i], fill)
+
+        args = s.split()
+        i = 0
+        for j in range(len(args)):
+            if args[j] == fill:
+                args[j] = b_args[i][1:-1]
+                i += 1
+        return args
 
 
 if __name__ == '__main__':
