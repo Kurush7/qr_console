@@ -3,6 +3,7 @@ module provides a console application builder based on argparse library
 """
 
 import argparse
+import re
 
 import colorama
 from colorama import Fore, Style

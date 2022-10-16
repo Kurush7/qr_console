@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name="qr_console",
-    version="1.1",
+    version="1.1.1",
     author="Kurush",
     author_email="ze17@ya.ru",
     description="console app builder",
